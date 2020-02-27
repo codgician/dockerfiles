@@ -1,0 +1,10 @@
+type: s
+
+shadowsocks:
+  address: 127.0.0.1:6001
+
+manager:
+  address: 0.0.0.0:4001
+  password: 'urP@sswd'
+
+db: 'db.sqlite'
