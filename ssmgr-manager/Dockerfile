@@ -35,5 +35,12 @@ RUN sed -i "s/debug/error/g" \
 RUN sed -i "s/'-v', //g" \
 /usr/lib/node_modules/shadowsocks-manager/init/runShadowsocks.js
 
-ENTRYPOINT [ "ssmgr" ]
+# Generate init.sh
+RUN mkdir /scripts
+RUN echo -e "#!/bin/bash\
+\nredis-server --daemonize yes && ssmgr" \
+> /scripts/init.sh
+RUN chmod +x /scripts/init.sh
+
+ENTRYPOINT [ "sh", "/scripts/init.sh" ]
 VOLUME [ "/.ssmgr" ]

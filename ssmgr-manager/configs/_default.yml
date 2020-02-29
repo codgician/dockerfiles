@@ -10,7 +10,7 @@ plugins:
   account:
     use: true
   email:
-    use: true
+    use: false
     type: 'smtp'
     username: 'username'
     password: 'password'
@@ -39,7 +39,7 @@ plugins:
 
 db: 'webgui.sqlite'
 redis:
-  host: 'your.redis.host'
+  host: '127.0.0.1'
   port: 6379
-  password: 
+  password: ''
   db: 0
