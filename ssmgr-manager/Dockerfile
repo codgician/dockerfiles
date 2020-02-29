@@ -4,7 +4,6 @@ FROM alpine:latest
 ARG timezone=Asia/Shanghai
 
 # Copy configuration file
-VOLUME [ "/.ssmgr" ]
 COPY configs /.ssmgr
 RUN ln -s /.ssmgr /root/
 
@@ -14,13 +13,12 @@ RUN echo -e "http://dl-cdn.alpinelinux.org/alpine/edge/main\
 \nhttp://dl-cdn.alpinelinux.org/alpine/edge/testing" \
 > /etc/apk/repositories
 
-# Install shadowsocks-libev and node
+# Install node and redis
 RUN apk --update add --no-cache \
-haveged \
-shadowsocks-libev \
 nodejs \
 npm \
-tzdata
+tzdata \
+redis
 
 # Install shadowsocks-manager
 RUN npm i -g shadowsocks-manager@latest --unsafe-perm
@@ -38,4 +36,4 @@ RUN sed -i "s/'-v', //g" \
 /usr/lib/node_modules/shadowsocks-manager/init/runShadowsocks.js
 
 ENTRYPOINT [ "ssmgr" ]
-CMD [ "-r", "libev:chacha20-ietf-poly1305" ]
+VOLUME [ "/.ssmgr" ]
