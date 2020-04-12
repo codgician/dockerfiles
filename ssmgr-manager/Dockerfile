@@ -19,7 +19,7 @@ RUN npm i -g shadowsocks-manager@latest --unsafe-perm
 RUN ln -s /.ssmgr /root/
 VOLUME [ "/.ssmgr" ]
 
-COPY init.sh /init.sh
+COPY start.sh /start.sh
 COPY update.sh /update.sh
 
-ENTRYPOINT [ "sh", "/init.sh" ]
+ENTRYPOINT [ "sh", "/start.sh" ]
