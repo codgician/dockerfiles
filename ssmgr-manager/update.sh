@@ -2,7 +2,7 @@
 apk upgrade
 
 # Update all node packages
-npm update -g --unsafe-perm
+npm update -g --unsafe-perm --latest
 
 # Error level: debug -> error
 sed -i "s/debug/error/g" \
