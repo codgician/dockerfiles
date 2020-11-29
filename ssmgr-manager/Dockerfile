@@ -3,7 +3,6 @@ FROM alpine:latest
 # Enable BBR
 RUN echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 RUN echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-RUN sysctl -p
 
 # Add edge repositories
 RUN echo -e "http://dl-cdn.alpinelinux.org/alpine/edge/main\
