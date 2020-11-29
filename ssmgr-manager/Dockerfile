@@ -24,6 +24,9 @@ RUN ln -s /.ssmgr /root/
 VOLUME [ "/.ssmgr" ]
 
 COPY start.sh /start.sh
+COPY hack.sh /hack.sh
 COPY update.sh /update.sh
+
+RUN sh /hack.sh
 
 ENTRYPOINT [ "sh", "/start.sh" ]

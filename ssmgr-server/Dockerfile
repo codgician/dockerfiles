@@ -24,6 +24,7 @@ RUN npm i -g shadowsocks-manager@latest --unsafe-perm
 RUN ln -s /.ssmgr /root/
 VOLUME [ "/.ssmgr" ]
 
+COPY hack.sh /hack.sh
 COPY update.sh /update.sh
 
 ENTRYPOINT [ "ssmgr" ]
