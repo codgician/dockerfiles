@@ -31,5 +31,7 @@ VOLUME [ "/.ssmgr" ]
 COPY hack.sh /hack.sh
 COPY update.sh /update.sh
 
+RUN sh /hack.sh
+
 ENTRYPOINT [ "ssmgr" ]
 CMD [ "-r", "libev:chacha20-ietf-poly1305" ]
