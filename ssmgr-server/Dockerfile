@@ -18,6 +18,10 @@ nodejs \
 npm \
 tzdata
 
+# Configure timezone
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install shadowsocks-manager
 RUN npm i -g shadowsocks-manager@latest --unsafe-perm
 

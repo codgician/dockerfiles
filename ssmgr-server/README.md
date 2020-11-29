@@ -8,6 +8,7 @@ Personal tweaks (mainly to protect user's privacy and ease heavy I/O):
 
 - Change log level from `debug` to `error`
 - Remove `-v` parameter when calling `ss-manager`
+- Adds hacky IPv6 support
 
 ## Usage
 
@@ -28,6 +29,8 @@ docker run -dit --net host -v /home/username/.ssmgr-server:/.ssmgr -e TZ=Asia/Sh
 
 ```
 ### Updating components
+
+**Not recommended, may introduce compatibility issues.**
 
 ```bash
 docker exec -it ssmgr-s sh /update.sh && docker restart ssmgr-s
